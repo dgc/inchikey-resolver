@@ -1,0 +1,15 @@
+{
+  "name": "InChI",
+  "version": "0.0.0",
+  "description": "InChI",
+  "main": "app.js",
+  "author": {
+    "name": "Don",
+    "email": ""
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "stylus": "*"
+  }
+}
