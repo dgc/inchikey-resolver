@@ -23,7 +23,7 @@ describe('inchi external dependency', function () {
             var inchi = require('../inchi');
 
             inchi.obtain_inchi_string_and_key(mol_definition, function (error, inchi_string, inchi_key) {
-                console.log(error);
+
                 assert.equal(error, null);
 
                 inchi_string.should.eql("1S/C6H6/c1-2-4-6-5-3-1/h1-6H");
