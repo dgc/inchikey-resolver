@@ -154,3 +154,6 @@ $RECYCLE.BIN/
 
 # Mac desktop service store files
 .DS_Store
+/InChI/node_modules
+/InChI/.ntvs_analysis.dat
+/InChI/public/stylesheets/style.css

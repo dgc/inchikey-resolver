@@ -31,8 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="store.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\user.js" />
+    <Compile Include="test\store_tests.js">
+      <SubType>Code</SubType>
+      <TestFramework>Mocha</TestFramework>
+    </Compile>
     <Content Include="package.json" />
     <Content Include="public\stylesheets\style.styl" />
     <Content Include="README.md" />
@@ -40,6 +45,7 @@
     <Content Include="views\layout.jade" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="test\" />
     <Folder Include="public\" />
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
