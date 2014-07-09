@@ -1,15 +1,36 @@
 ﻿var assert = require('assert');
 var path = require('path');
+var fs = require('fs');
+var _ = require('underscore');
+
+function loadFile(filename, callback) {
+
+    fs.readFile(path.resolve(__dirname, filename), function (err, data) {
+
+        if (err)
+            throw err;
+
+        callback(data.toString('utf8'));
+    });
+}
 
 describe('inchi external dependency', function () {
 
     it('should execute successfully', function (done) {
 
-        var exec = require('child_process').exec;
+        loadFile('fixtures/benzine.mol', function (mol_definition) {
 
-        exec(path.resolve('inchi', 'inchi-1.exe'), function callback(error, stdout, stderr) {
-            assert.equal(error, null);
-            done();
+            var inchi = require('../inchi');
+
+            inchi.obtain_inchi_string_and_key(mol_definition, function (error, inchi_string, inchi_key) {
+                console.log(error);
+                assert.equal(error, null);
+
+                inchi_string.should.eql("1S/C6H6/c1-2-4-6-5-3-1/h1-6H");
+                inchi_key.should.eql("UHOVQNZJYSORNB-UHFFFAOYSA-N");
+
+                done();
+            });
         });
     })
 })
