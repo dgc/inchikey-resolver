@@ -55,6 +55,7 @@
     <Content Include="test\fixtures\benzine.mol" />
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
+    <Content Include="views\product.jade" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="inchi\" />
