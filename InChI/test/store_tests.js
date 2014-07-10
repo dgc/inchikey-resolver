@@ -66,4 +66,14 @@ describe('testStore', function () {
         assert.equal(testStore.findById(id), undefined);
         done();
     });
+
+    it('should be able to create records with predefined identifiers', function (done) {
+
+        var testStore = store.obtain("test");
+        
+        testStore.add({ id: "abcd", foo: "bar" }).id;
+        
+        testStore.findById("abcd").foo.should.eql("bar");
+        done();
+    });
 })

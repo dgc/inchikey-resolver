@@ -16,12 +16,24 @@ exports.obtain = function obtain(store) {
     
     storeObject.add = function (data) {
         
-        storedData = { id: storeObject.nextID };
+        var id;
+
+        if (data.id) {
+            if (storeObject.data[id]) {
+                throw Error("Record identifier already exists: " + id);
+            }
+        }
         
-        _.extend(storedData, data);
+        if (data.id) {
+            id = data.id;
+        } else {
+            id = storeObject.nextID;
+            storeObject.nextID++;
+        }
+               
+        storedData = _.extend({ id: id }, data);
         
-        storeObject.data[storeObject.nextID] = storedData;
-        storeObject.nextID++;
+        storeObject.data[id] = storedData;
         storeObject.count = Object.keys(storeObject.data).length;
         
         return storedData;
