@@ -32,10 +32,16 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="inchi.js" />
+    <Compile Include="qrcode.js" />
+    <Compile Include="routes\product.js" />
     <Compile Include="store.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\user.js" />
     <Compile Include="test\inchi_tests.js">
+      <SubType>Code</SubType>
+      <TestFramework>Mocha</TestFramework>
+    </Compile>
+    <Compile Include="test\qrcode_tests.js">
       <SubType>Code</SubType>
       <TestFramework>Mocha</TestFramework>
     </Compile>

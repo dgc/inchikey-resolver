@@ -32,5 +32,5 @@ describe('inchi external dependency', function () {
                 done();
             });
         });
-    })
+    });
 })
