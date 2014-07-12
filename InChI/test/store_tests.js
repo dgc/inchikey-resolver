@@ -6,7 +6,7 @@ describe('testStore', function () {
     
     it('should add a record', function (done) {
         
-        var testStore = store.obtain("test");
+        var testStore = store.obtain("test1");
         
         testStore.count.should.eql(0);
         testStore.add({ foo: 1 });
@@ -17,7 +17,7 @@ describe('testStore', function () {
     
     it('should store records with incremental identifiers', function (done) {
         
-        var testStore = store.obtain("test");
+        var testStore = store.obtain("test2");
         
         testStore.add({ name: "Test record", foo: "Bar" }).id.should.eql(1);
         testStore.add({ name: "Test record", foo: "Bar" }).id.should.eql(2);
@@ -28,7 +28,7 @@ describe('testStore', function () {
     
     it('should be able to update a supplier', function (done) {
         
-        var testStore = store.obtain("test");
+        var testStore = store.obtain("test3");
         
         var id = testStore.add({ name: "Test record", foo: "Bar" }).id;
         
@@ -42,7 +42,7 @@ describe('testStore', function () {
     
     it('should be able to testStore and retrieve a record', function (done) {
         
-        var testStore = store.obtain("test");
+        var testStore = store.obtain("test4");
         
         var id = testStore.add({ foo: "bar" }).id;
         
@@ -52,7 +52,7 @@ describe('testStore', function () {
     
     it('should be able to destroy a record', function (done) {
         
-        var testStore = store.obtain("test");
+        var testStore = store.obtain("test5");
         testStore.count.should.eql(0);
         
         var id = testStore.add({ name: "Test record" }).id;
@@ -69,11 +69,29 @@ describe('testStore', function () {
 
     it('should be able to create records with predefined identifiers', function (done) {
 
-        var testStore = store.obtain("test");
+        var testStore = store.obtain("test6");
         
         testStore.add({ id: "abcd", foo: "bar" }).id;
         
         testStore.findById("abcd").foo.should.eql("bar");
+        done();
+    });
+
+    it('should provide access to the same store when using the same name', function (done) {
+
+        var store1 = store.obtain("test7");
+        var store2 = store.obtain("test7");
+
+        (store1 == store2).should.eql(true);
+        done();
+    });
+
+    it('should provide distinct stores when using different names', function (done) {
+        
+        var store1 = store.obtain("test8");
+        var store2 = store.obtain("test9");
+        
+        (store1 == store2).should.eql(false);
         done();
     });
 })

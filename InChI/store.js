@@ -2,7 +2,7 @@
 
 var _ = require('underscore');
 
-exports.obtain = function obtain(store) {
+exports.obtain = _.memoize(function obtain(store) {
     
     var storeObject = {
         data: {},
@@ -17,7 +17,7 @@ exports.obtain = function obtain(store) {
     storeObject.add = function (data) {
         
         var id;
-
+        
         if (data.id) {
             if (storeObject.data[id]) {
                 throw Error("Record identifier already exists: " + id);
@@ -30,7 +30,7 @@ exports.obtain = function obtain(store) {
             id = storeObject.nextID;
             storeObject.nextID++;
         }
-               
+        
         storedData = _.extend({ id: id }, data);
         
         storeObject.data[id] = storedData;
@@ -49,9 +49,9 @@ exports.obtain = function obtain(store) {
     
     storeObject.destroy = function (id) {
         delete storeObject.data[id];
-
+        
         storeObject.count = Object.keys(storeObject.data).length;
     }
-
+    
     return storeObject;
-}
+});
