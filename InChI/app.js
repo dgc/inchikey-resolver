@@ -7,6 +7,7 @@ var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
 var product = require('./routes/product');
+var supplier = require('./routes/supplier');
 var http = require('http');
 var path = require('path');
 
@@ -44,6 +45,8 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/entities/:inchikey', product.show);
 app.post('/post', product.create);
+app.get('/suppliers', supplier.index);
+app.get('/suppliers/:supplier', supplier.show);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

@@ -1,0 +1,25 @@
+﻿extends layout
+
+block content
+  h1 Supplier metadata
+
+  table.metadata
+    tr
+      th Name
+      td= supplier.name
+    tr
+      th Address
+      td= supplier.address
+    tr
+      th Contact
+      td= supplier.contact
+    tr
+      th Phone
+      td= supplier.phone
+
+  h2 Add new product(s)
+
+  form(name="uploader", action="/post?supplier=" + supplier.id, method="post", enctype="multipart/form-data")
+    input(type="file", name="file", id="file" multiple)
+    input(type="hidden", name="originator", value=supplier.id)
+    input(type="submit", value="Upload")

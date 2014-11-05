@@ -1,0 +1,16 @@
+﻿extends layout
+
+block content
+  h1 Suppliers
+
+  h2 Common suppliers
+  ul
+    li
+      a(href='/suppliers/abc_chemical') ABC Chemical
+
+  h2 Search suppliers
+
+    form(target='/search/suppliers' method='get')
+      input
+      span= " "
+      input(class='searchbutton' type='submit' value='Search')
