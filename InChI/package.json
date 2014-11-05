@@ -15,6 +15,7 @@
     "mocha": "^1.20.1",
     "should": "^4.0.4",
     "underscore": "^1.6.0",
-    "dom-js": "0.0.9"
+    "dom-js": "0.0.9",
+    "formidable": "^1.0.15"
   }
 }

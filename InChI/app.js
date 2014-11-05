@@ -27,12 +27,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+    app.use(express.errorHandler());
+    
+    var suppliers = require('./store').obtain('suppliers');    
+
+    suppliers.add({
+        id: 'x_chemical',
+        name: "Chemical X Manufacturing",
+        address: "1234, Over There St.",
+        contact: "Mr Ben Zene",
+        phone: "(123) 456-7890"
+    });
 }
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/inchikey/:inchikey', product.show);
+app.get('/entities/:inchikey', product.show);
+app.post('/post', product.create);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

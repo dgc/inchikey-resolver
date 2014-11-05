@@ -1,7 +1,33 @@
 ﻿extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Chemical Entity
 
+  h2 InChI
+  p= inchi
+
+  h2 InChI Key
+  p= inchikey
+  
   != qrcode
+
+  != diagram
+
+  if supplier
+
+    h2 Supplier metadata
+
+    table.metadata
+      tr
+        th Name
+        td= supplier.name
+      tr
+        th Address
+        td= supplier.address
+      tr
+        th Contact
+        td= supplier.contact
+      tr
+        th Phone
+        td= supplier.phone
+  
