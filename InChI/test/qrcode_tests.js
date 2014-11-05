@@ -1,4 +1,6 @@
 ﻿var assert = require('assert');
+var should = require('should');
+var path = require('path');
 var qrcode = require('../qrcode');
 
 describe('QR code generator', function () {

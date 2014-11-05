@@ -1,5 +1,5 @@
 ﻿var path = require('path');
-var qrcode = require(path.resolve(__dirname, '..', 'qrcode'));
+var qrcode = require('../qrcode');
 var formidable = require('formidable')
 var util = require('util');
 var fs = require('fs');

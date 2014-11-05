@@ -1,7 +1,7 @@
 ﻿var path = require('path');
 var exec = require('child_process').exec;
 
-var inchi_bin_path = path.resolve('inchi', 'inchi-1.exe');
+var inchi_bin_path = path.resolve(__dirname, 'inchi', 'inchi-1.exe');
 var inchi_bin_args = "/STDIO /Key";
 
 exports.obtain_inchi_string_and_key = function (definition, callback) {

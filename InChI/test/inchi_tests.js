@@ -1,4 +1,5 @@
 ﻿var assert = require('assert');
+var should = require('should');
 var path = require('path');
 var fs = require('fs');
 var _ = require('underscore');
@@ -18,7 +19,7 @@ describe('inchi external dependency', function () {
 
     it('should execute successfully', function (done) {
 
-        loadFile('fixtures/benzine.mol', function (mol_definition) {
+        loadFile(path.resolve(__dirname, 'fixtures', 'benzine.mol'), function (mol_definition) {
 
             var inchi = require('../inchi');
 

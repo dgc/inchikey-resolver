@@ -32,12 +32,18 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="inchi.js" />
+    <Compile Include="mol2ps.js" />
     <Compile Include="qrcode.js" />
     <Compile Include="routes\product.js" />
+    <Compile Include="routes\supplier.js" />
     <Compile Include="store.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\user.js" />
     <Compile Include="test\inchi_tests.js">
+      <SubType>Code</SubType>
+      <TestFramework>Mocha</TestFramework>
+    </Compile>
+    <Compile Include="test\mol2ps_tests.js">
       <SubType>Code</SubType>
       <TestFramework>Mocha</TestFramework>
     </Compile>
@@ -56,6 +62,8 @@
     <Content Include="views\index.jade" />
     <Content Include="views\layout.jade" />
     <Content Include="views\product.jade" />
+    <Content Include="views\supplier.jade" />
+    <Content Include="views\suppliers.jade" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="inchi\" />
