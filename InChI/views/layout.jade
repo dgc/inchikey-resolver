@@ -4,4 +4,15 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    h1 InChI QR Code demonstrator
+
+    if typeof breadcrumbs != 'undefined'
+      ol.breadcrumbs
+        each breadcrumb in breadcrumbs
+          li
+            if typeof breadcrumb === 'object'
+              a(href=breadcrumb[1])= breadcrumb[0]
+            else
+              span= breadcrumb
+
     block content
